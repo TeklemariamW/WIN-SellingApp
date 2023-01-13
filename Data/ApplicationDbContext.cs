@@ -10,5 +10,6 @@ namespace WIN_sellingApp.Data
         {}
 
         public DbSet<Customer>? customers { get; set; }
+        public DbSet<Car>? cars { get; set; }
     }
 }

@@ -41,5 +41,21 @@ namespace WIN_sellingApp.Controllers
             }
             return customer;
         }
+
+        // Post: api/Customers
+        [HttpPost]
+        public async Task<ActionResult<Customer>> AddCustomer(Customer customer)
+        {
+           
+            if (_context.customers == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Customer'  is null.");
+            }
+               
+            _context.customers.Add(customer);
+           await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetCustomer", new { id = customer.Customerid }, customer);
+        }
     }
 }

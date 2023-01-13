@@ -1,7 +1,7 @@
 
 namespace WIN_sellingApp.Models
 {
-    public class CreateBuilder
+    public class Car
     {
         public int Carid { get; set; }
         public string? KindOfCar { get; set; }
