@@ -47,7 +47,7 @@ export class Customer extends Component{
         return(
             <div>
                 <h1 id="customerTable">Customers </h1>
-                <p>Those are all the customers registered on our system.</p>
+                <p>This is the list of all customers registered on our system.</p>
                 {content}
             </div>
         )
