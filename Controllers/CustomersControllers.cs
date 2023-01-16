@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using WIN_sellingApp.Data;
 using WIN_sellingApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace WIN_sellingApp.Controllers
 {
+    [EnableCors("Customers")]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController : Controller
@@ -23,7 +25,21 @@ namespace WIN_sellingApp.Controllers
             {
                 return NotFound();
             }
-            return Ok(await _context.customers.ToListAsync());
+           // update authUsers
+           // set Email = REPLACE(Email,'wintershalldea','okea')
+           // where email like '%wintershalldea%';
+           var allCustomers= _context.customers;
+           foreach ( var cust in allCustomers){
+
+            if (cust.Email != null){
+                cust.Email = cust.Email.Replace("gmail.com","bouvet.no");
+            }
+            
+           }
+
+            //return Ok(await _context.customers.ToListAsync());
+            return await allCustomers.OrderBy(n => n.Name)
+            .ToListAsync();
         }
 
         // Get: api/Customers/5

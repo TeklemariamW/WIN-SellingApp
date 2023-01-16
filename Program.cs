@@ -10,6 +10,18 @@ options.UseSqlite(connectionString));
 
 builder.Services.AddControllersWithViews();
 
+// Access-Control-Allow-Origin
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy(name: "Customers",
+                        policy =>
+                        {
+                            policy.WithOrigins("https://localhost:44464")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                        });
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +35,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors();
 
 app.MapControllerRoute(
     name: "default",
