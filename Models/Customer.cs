@@ -6,6 +6,7 @@ namespace WIN_sellingApp.Models
     {
         public int Customerid { get; set; }
         public string? Name { get; set; }
+        public int Age { get; set; }
         public string? Address { get; set; }
 
         [DataType(DataType.PhoneNumber)]

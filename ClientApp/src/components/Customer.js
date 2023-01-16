@@ -19,6 +19,7 @@ export class Customer extends Component{
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>Age</th>
                         <th>Address</th>
                         <th>Telephone</th>
                         <th>Email</th>
@@ -29,6 +30,7 @@ export class Customer extends Component{
                         <tr key={customer.customerid}>
                             <td>{customer.customerid}</td>
                             <td>{customer.name}</td>
+                            <td>{customer.age ? customer.age !== 0 : "Unregistered"} </td>
                             <td>{customer.address}</td>
                             <td>{customer.telephoneNumber}</td>
                             <td>{customer.email}</td>
