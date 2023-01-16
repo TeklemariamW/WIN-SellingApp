@@ -1,3 +1,4 @@
+import { Car } from "./components/Car";
 import { Counter } from "./components/Counter";
 import { Customer } from "./components/Customer";
 import { FetchData } from "./components/FetchData";
@@ -19,6 +20,10 @@ const AppRoutes = [
   {
     path: '/allCustomers',
     element: <Customer />
+  },
+  {
+    path:'/allCars',
+    element: <Car />
   }
 ];
 
