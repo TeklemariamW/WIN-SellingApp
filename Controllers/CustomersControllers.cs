@@ -30,7 +30,7 @@ namespace WIN_sellingApp.Controllers
            // where email like '%wintershalldea%';
            var allCustomers= _context.customers;
            foreach ( var cust in allCustomers){
-
+            
             if (cust.Email != null){
                 cust.Email = cust.Email.Replace("gmail.com","bouvet.no");
             }
